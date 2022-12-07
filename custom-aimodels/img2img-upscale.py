@@ -7,6 +7,7 @@ script_args = ''\
 '  --ddim_steps 400 '\
 '  --n_samples 1 '\
 '  --n_iter 1 '\
+'  --n_rows 0 '\
 '  --scale 8 '\
 '  --strength 0.45 '\
 f' --from-folder /tmp/samples_resized/ '\
