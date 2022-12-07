@@ -3,8 +3,8 @@ import sys
 
 model_name = sys.argv[1]
 
-script_args = ' --skip_grid ' \
-  ' --ddim_steps 30 '\
+script_args = '' \
+  ' --steps 30 '\
   ' --H 320 '\
   ' --W 576 '\
   ' --n_samples 1 '\

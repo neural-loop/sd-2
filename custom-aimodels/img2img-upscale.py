@@ -3,7 +3,7 @@ import sys
 
 model_name = sys.argv[1]
 # get the line from prompts.txt that corresponds to the current filename
-script_args = ' --skip_grid ' \
+script_args = ''\
 '  --ddim_steps 400 '\
 '  --n_samples 1 '\
 '  --n_iter 1 '\
