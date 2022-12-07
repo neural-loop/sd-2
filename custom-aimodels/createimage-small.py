@@ -5,8 +5,8 @@ model_name = sys.argv[1]
 
 script_args = '' \
   ' --steps 30 '\
-  ' --H 320 '\
-  ' --W 576 '\
+  ' --H 576 '\
+  ' --W 1024 '\
   ' --n_samples 1 '\
   ' --n_iter 1 '\
   ' --scale 8 '\
