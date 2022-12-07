@@ -9,7 +9,6 @@ script_args = '' \
   ' --W 576 '\
   ' --n_samples 1 '\
   ' --n_iter 1 '\
-  ' --scale 8 '\
   ' --from-file custom-aimodels/prompts.txt '\
  f' --ckpt /var/meadowrun/machine_cache/{model_name} '\
   ' --seed 1330 '\
