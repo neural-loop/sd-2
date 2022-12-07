@@ -281,11 +281,10 @@ def main():
                                 base_count += 1
                             all_samples.append(x_samples)
 
-                    # if not opt.skip_grid:
-                    #     # additionally, save as grid
-                    #     grid = torch.stack(all_samples, 0)
-                    #     grid = rearrange(grid, 'n b c h w -> (n b) c h w')
-                    #     grid = make_grid(grid, nrow=n_rows)
+                        # additionally, save as grid
+                        grid = torch.stack(all_samples, 0)
+                        grid = rearrange(grid, 'n b c h w -> (n b) c h w')
+                        grid = make_grid(grid, nrow=n_rows)
 
                         # to image
                         grid = 255. * rearrange(grid, 'c h w -> h w c').cpu().numpy()
