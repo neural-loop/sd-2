@@ -4,7 +4,7 @@ import sys
 model_name = sys.argv[1]
 
 script_args = '' \
-  ' --steps 30 '\
+  ' --steps 80 '\
   ' --H 512 '\
   ' --W 896 '\
   ' --n_samples 1 '\
