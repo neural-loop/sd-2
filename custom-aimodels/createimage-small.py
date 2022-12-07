@@ -7,6 +7,7 @@ script_args = '' \
   ' --steps 80 '\
   ' --H 512 '\
   ' --W 896 '\
+  ' --dpm'\
   ' --n_samples 1 '\
   ' --n_iter 1 '\
   ' --scale 8 '\
