@@ -2,7 +2,7 @@ import subprocess
 import sys
 
 model_name = sys.argv[1]
-s3_bucket_name = sys.argv[2]
+s3_bucket_name = sys.argv[2] if len(sys.argv) > 2 else 'visioninit-sd'
 
 # get the line from prompts.txt that corresponds to the current filename
 script_args = ' --skip_grid ' \
