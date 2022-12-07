@@ -1,5 +1,6 @@
 import asyncio
 import meadowrun
+import sys
 
 # get command line argument as model_name default to v1-5-pruned-emaonly.ckpt
 model_name = sys.argv[1] if len(sys.argv) > 1 else 'v1-5-pruned-emaonly.ckpt'
@@ -29,7 +30,8 @@ def main():
                 gpu_memory=16, flags="nvidia"
             ),
             meadowrun.Deployment.git_repo(
-                "https://github.com/Stability-AI/stablediffusion",
+                "https://github.com/neural-loop/stablediffusion",
+                branch="visioninit",
                 interpreter=meadowrun.CondaEnvironmentYmlFile(
                     "environment.yaml", additional_software=["awscli", "libgl1"]
                 ),
