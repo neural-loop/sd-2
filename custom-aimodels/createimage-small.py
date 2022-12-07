@@ -3,8 +3,7 @@ import sys
 
 model_name = sys.argv[1]
 
-script_args = '' \
-  ' --steps 80 '\
+script_args = ' --steps 80 '\
   ' --H 512 '\
   ' --W 896 '\
   ' --dpm'\
