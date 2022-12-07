@@ -2,9 +2,6 @@ import subprocess
 import sys
 
 model_name = sys.argv[1]
-# get second command argument as bucket name default to visioninit-sd
-s3_bucket_name = sys.argv[2] if len(sys.argv) > 2 else 'visioninit-sd'
-
 
 script_args = ' --skip_grid ' \
   ' --ddim_steps 30 '\
