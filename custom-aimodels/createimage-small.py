@@ -9,10 +9,10 @@ script_args = ' --steps 50 '\
   ' --n_samples 1 '\
   ' --n_iter 1 '\
   ' --scale 8 '\
-  ' --from-file custom-aimodels/prompts.txt '\
- f' --ckpt /var/meadowrun/machine_cache/{model_name} '\
+  ' --from-file \'custom-aimodels/prompts.txt\' '\
+ f' --ckpt \'/var/meadowrun/machine_cache/{model_name}\' '\
   ' --seed 1330 '\
-  ' --config configs/stable-diffusion/v2-inference-v.yaml'\
+  ' --config \'configs/stable-diffusion/v2-inference-v.yaml\''\
   ' --precision full '\
   ' --outdir /tmp/outputs '
 
