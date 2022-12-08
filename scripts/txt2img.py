@@ -208,7 +208,7 @@ def main(opt):
     wm_encoder.set_watermark('bytes', wm.encode('utf-8'))
 
     batch_size = opt.n_samples
-    n_rows = opt.n_rows if opt.n_rows > 0 else batch_size
+    # n_rows = opt.n_rows if opt.n_rows > 0 else batch_size
     if not opt.from_file:
         prompt = opt.prompt
         assert prompt is not None
@@ -221,11 +221,9 @@ def main(opt):
             data = [p for p in data for i in range(opt.repeat)]
             data = list(chunk(data, batch_size))
 
-    sample_path = os.path.join(outpath, "samples")
+    sample_path = outpath
     os.makedirs(sample_path, exist_ok=True)
-    sample_count = 0
     base_count = len(os.listdir(sample_path))
-    grid_count = len(os.listdir(outpath)) - 1
 
     start_code = None
     if opt.fixed_code:
@@ -235,7 +233,7 @@ def main(opt):
     with torch.no_grad(), \
         precision_scope("cuda"), \
         model.ema_scope():
-            all_samples = list()
+            # all_samples = list()
             for n in trange(opt.n_iter, desc="Sampling"):
                 for prompts in tqdm(data, desc="data"):
                     uc = None
@@ -264,21 +262,20 @@ def main(opt):
                         img = put_watermark(img, wm_encoder)
                         img.save(os.path.join(sample_path, f"{base_count:05}.png"))
                         base_count += 1
-                        sample_count += 1
 
-                    all_samples.append(x_samples)
+                    # all_samples.append(x_samples)
 
             # additionally, save as grid
-            grid = torch.stack(all_samples, 0)
-            grid = rearrange(grid, 'n b c h w -> (n b) c h w')
-            grid = make_grid(grid, nrow=n_rows)
-
-            # to image
-            grid = 255. * rearrange(grid, 'c h w -> h w c').cpu().numpy()
-            grid = Image.fromarray(grid.astype(np.uint8))
-            grid = put_watermark(grid, wm_encoder)
-            grid.save(os.path.join(outpath, f'grid-{grid_count:04}.png'))
-            grid_count += 1
+            # grid = torch.stack(all_samples, 0)
+            # grid = rearrange(grid, 'n b c h w -> (n b) c h w')
+            # grid = make_grid(grid, nrow=n_rows)
+            #
+            # # to image
+            # grid = 255. * rearrange(grid, 'c h w -> h w c').cpu().numpy()
+            # grid = Image.fromarray(grid.astype(np.uint8))
+            # grid = put_watermark(grid, wm_encoder)
+            # grid.save(os.path.join(outpath, f'grid-{grid_count:04}.png'))
+            # grid_count += 1
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
           f" \nEnjoy.")
