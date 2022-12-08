@@ -13,7 +13,7 @@ script_args = ''\
 f' --from-folder /tmp/samples_resized/ '\
 f' --ckpt /var/meadowrun/machine_cache/{model_name} '\
 '  --seed 1330 '\
-'  --config configs/stable-diffusion/v2-inference.yaml'\
+'  --config configs/stable-diffusion/v2-inference-v.yaml'\
 '  --precision autocast '\
 '  --outdir /tmp/img2img '
 

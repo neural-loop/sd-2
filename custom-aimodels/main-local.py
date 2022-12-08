@@ -14,7 +14,7 @@ def main():
             f'--include {ckpt_name} '
             f'&& python scripts/txt2img.py --prompt "{prompt}"  '
             f'--ckpt /var/meadowrun/machine_cache/{ckpt_name} --outdir /tmp/outputs '
-            '--config configs/stable-diffusion/v2-inference.yaml '
+            '--config configs/stable-diffusion/v2-inference-v.yaml '
             f'&& aws s3 sync /tmp/outputs s3://{s3_bucket_name}/{folder_name}\'',
             meadowrun.AllocCloudInstance("EC2"),
             meadowrun.Resources(
