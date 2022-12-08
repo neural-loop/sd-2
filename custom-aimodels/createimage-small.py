@@ -9,6 +9,8 @@ script_args = '--steps 50 '\
   ' --n_iter 1 '\
   ' --H 512 '\
   ' --W 896 '\
+  ' --seed 1337'\
+  ' --scale 12 '\
  f' --ckpt /var/meadowrun/machine_cache/{model_name} '\
   ' --config configs/stable-diffusion/v2-inference-v.yaml'\
   ' --outdir /tmp/outputs '
