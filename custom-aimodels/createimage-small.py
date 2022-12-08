@@ -3,10 +3,9 @@ import sys
 
 model_name = sys.argv[1]
 
-script_args = ' --steps 500 '\
+script_args = ' --steps 50 '\
   ' --H 512 '\
   ' --W 896 '\
-  ' --dpm'\
   ' --n_samples 1 '\
   ' --n_iter 1 '\
   ' --scale 8 '\
