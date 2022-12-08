@@ -14,7 +14,7 @@ script_args = ' --steps 500 '\
  f' --ckpt /var/meadowrun/machine_cache/{model_name} '\
   ' --seed 1330 '\
   ' --config configs/stable-diffusion/v2-inference.yaml'\
-  ' --precision autocast '\
+  ' --precision full '\
   ' --outdir /tmp/outputs '
 
 subprocess.check_output('python scripts/txt2img.py ' + script_args, shell=True).decode('utf-8')
