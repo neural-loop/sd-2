@@ -29,7 +29,7 @@ def main():
                 gpu_memory=16, flags="nvidia"
             ),
             meadowrun.Deployment.git_repo(
-                "https://github.com/neural-loop/stablediffusion",
+                "https://github.com/neural-loop/sd-2",
                 branch="visioninit",
                 interpreter=meadowrun.CondaEnvironmentYmlFile(
                     "environment.yaml", additional_software=["awscli", "libgl1"]
