@@ -99,6 +99,12 @@ def main():
     )
 
     parser.add_argument(
+        "--skip_grid",
+        action='store_true',
+        help="compatibility flag"
+    )
+
+    parser.add_argument(
         "--ddim_eta",
         type=float,
         default=0.0,
