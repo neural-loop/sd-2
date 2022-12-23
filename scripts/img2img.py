@@ -61,7 +61,7 @@ def load_img(path):
 def main():
     global init_imgs
     parser = argparse.ArgumentParser()
-
+    print('img2img')
     parser.add_argument(
         "--prompt",
         type=str,
@@ -233,7 +233,7 @@ def main():
             if f.endswith(".png"):
                 init_imgs.append(f"{opt.from_folder}/{f}")
 
-    sample_path = os.path.join(outpath, "samples")
+    sample_path = os.path.join(outpath)
     os.makedirs(sample_path, exist_ok=True)
     base_count = len(os.listdir(sample_path))
     grid_count = len(os.listdir(outpath)) - 1
@@ -287,18 +287,6 @@ def main():
                                 img.save(os.path.join(sample_path, f"{base_count:05}.png"))
                                 base_count += 1
                             all_samples.append(x_samples)
-
-                        # additionally, save as grid
-                        grid = torch.stack(all_samples, 0)
-                        grid = rearrange(grid, 'n b c h w -> (n b) c h w')
-                        grid = make_grid(grid, nrow=n_rows)
-
-                        # to image
-                        grid = 255. * rearrange(grid, 'c h w -> h w c').cpu().numpy()
-                        grid = Image.fromarray(grid.astype(np.uint8))
-                        grid = put_watermark(grid, wm_encoder)
-                        grid.save(os.path.join(outpath, f'grid-{grid_count:04}.png'))
-                        grid_count += 1
 
         iterated += 1
     print(f"Your samples are ready and waiting for you here: \n{outpath} \nEnjoy.")
